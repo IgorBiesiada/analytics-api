@@ -1,1 +1,58 @@
-ECHO is on.
+# Wirtualne środowisko
+venv/
+.venv/
+ENV/
+env/
+*.pyc
+__pycache__/
+
+# Pliki środowiskowe
+.env
+.env.*
+
+# Pliki logów
+*.log
+
+# Test coverage
+htmlcov/
+.coverage
+.tox/
+.nox/
+.cache/
+.pytest_cache/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Docker
+*.pid
+*.tar
+*.img
+docker-compose.override.yml
+
+# Systemowe
+.DS_Store
+Thumbs.db
+
+# Pliki builda
+build/
+dist/
+*.egg-info/
+
+# Jupyter / notebooki
+.ipynb_checkpoints/
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Profilowanie i cache
+.prof
+.pyre/
+
+# Dla lokalnych configów
+*.local
