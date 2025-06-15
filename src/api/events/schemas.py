@@ -6,3 +6,5 @@ class EventSchema(BaseModel):
 
 class EventListSchema(BaseModel):
     result: List[EventSchema]
+    count: int
+    
