@@ -4,3 +4,4 @@ gunicorn
 pydantic
 sqlalchemy
 timescaledb
+python-decouple
