@@ -9,12 +9,11 @@ class EventCreateSchema(SQLModel):
 class EventUpdateSchema(SQLModel):
     description: str
 
-class EventSchema(SQLModel):
-    #id: int | None = Field(default=None, primary_key=True)
-    id: int
+class EventModel(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
     page: Optional[str] = ''
     description: Optional[str] = ''
 
 class EventListSchema(SQLModel):
-    result: List[EventSchema]
+    result: List[EventModel]
     count: int
