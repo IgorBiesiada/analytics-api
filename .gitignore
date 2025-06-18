@@ -1,5 +1,6 @@
 # Wirtualne środowisko
 venv/
+.env.compose/
 .venv/
 ENV/
 env/
