@@ -1,4 +1,18 @@
 services:
+  
+  db_service:
+    image: timescale/timescaledb:latest-pg17
+    environment:  
+      - POSTGRES_USER=time-user
+      - POSTGRES_PASSWORD=time-pw
+      - POSTGRES_DB=timescaledb
+    ports:
+      - "5432:5432"
+    expose:
+      - 5432
+    volumes:
+      - timescaledb_data:/var/lib/postgresql/data
+  
   app:
     image: analytics_api:v1
     build: 
@@ -19,18 +33,6 @@ services:
           path: requirements.txt
         - action: rebuild
           path: compose.yaml
-  db_service:
-    image: timescale/timescaledb:latest-pg17
-    environment:  
-      - POSTGRES_USER=time-user
-      - POSTGRES_PASSWORD=time-pw
-      - POSTGRES_DB=timescaledb
-    ports:
-      - "5432:5432"
-    expose:
-      - 5432
-    volumes:
-      - timescaledb_data:/var/lib/postgresql/data
 
 volumes:
   timescaledb_data:
