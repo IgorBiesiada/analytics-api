@@ -35,7 +35,7 @@ def get_event(event_id:int, session:Session = Depends(get_session)):
         raise HTTPException(status_code=404, detail='event not found')
     return result
 
-@router.put("/{event_id}", response_class=EventModel)
+@router.put("/{event_id}", response_model=EventModel)
 def update_event(event_id:int, payload:EventUpdateSchema, session:Session = Depends(get_session)):
     query = select(EventModel).where(EventModel.id == event_id)
     obj = session.exec(query).first()
@@ -51,7 +51,7 @@ def update_event(event_id:int, payload:EventUpdateSchema, session:Session = Depe
     session.refresh(obj)
     return obj
     
-@router.delete("/{event_id}", response_class=EventModel)
+@router.delete("/{event_id}", response_model=EventModel)
 def delete_event(event_id:int, session: Session = Depends(get_session)):
     event = session.get(EventModel, event_id)
     if not event:
